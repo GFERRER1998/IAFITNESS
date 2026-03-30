@@ -1,0 +1,31 @@
+AI-POWERED FITNESS MICROSERVICES STACK 🚀
+-------------------------------------------
+
+This project is a modern, distributed fitness tracking platform designed to showcase full-stack expertise in Cloud-Native architectures and AI integration.
+
+CORE ARCHITECTURE:
+- Backend: Microservices with Spring Boot 3.4.3 & Spring Cloud (Service Discovery, Gateway, Centralized Config).
+- Database: NoSQL with MongoDB.
+- Messaging: Event-driven communication using Apache Kafka.
+- Security: OAuth2 & OpenID Connect with Keycloak (Resource Server & JWT validation).
+- Frontend: Modern SPA with React 19, Redux Toolkit, and Material UI.
+- AI: Native integration with Google Gemini AI for health recommendations.
+
+KEY TECHNICAL HIGHLIGHTS:
+1. Unified Security: Secured via Keycloak at the Gateway level using OAuth2.
+2. Async Processing: Real-time health analysis non-blocking via Kafka.
+3. Scalability: Independently deployable services with service discovery (Eureka).
+4. UX/UI: Premium dark-mode design with MUI components and glassmorphism.
+
+SERVICES:
+- gateway (8080): Unified Entry Point & Security.
+- eureka (8761): Service Discovery.
+- configserver (8888): Centralized configuration.
+- activityservice (8082): Fitness tracking storage (MongoDB).
+- aiservices (8085): Google Gemini AI Recommendation engine.
+- UserService (8081): Identity management.
+- frontend (5173): React User Interface.
+
+This project demonstrates a production-ready approach to building complex, data-driven applications.
+-------------------------------------------
+✈️ Ready for Deployment and Scaling.

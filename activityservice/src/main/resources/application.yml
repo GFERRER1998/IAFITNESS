@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: activityservice
+  config:
+    import: "optional:configserver:http://localhost:8888"
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/activityfitness
+      database: activityfitness
+  cloud:
+    config:
+      enabled: true
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+server:
+  port: 8082
+  tomcat:
+    threads:
+      max: 500
+    accept-count: 1000
+    max-connections: 10000
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+kafka:
+  topic:
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info,metrics,prometheus"
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  health:
+    rabbit:
+      enabled: false
+    kafka:
+      enabled: false
+    mongodb:
+      enabled: true

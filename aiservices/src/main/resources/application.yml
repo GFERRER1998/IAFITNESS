@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: aiservices
+  config:
+    import: "optional:configserver:http://localhost:8888"
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/airecomendations
+      database: airecomendations
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: activity-processor-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.use.type.headers: false
+        spring.json.trusted.packages: '*'
+        spring.json.value.default.type: 'com.fitness.aiservices.models.Activity'
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+kafka:
+  topic:
+    name: activity-events
+
+server:
+  port: 8084
+
+gemini:
+  api:
+    url: https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent
+    key: AIzaSyCU_CWtK-U2A_hl4OmAQ2oXtu-jfQCf6gI
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info,metrics,prometheus"
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
